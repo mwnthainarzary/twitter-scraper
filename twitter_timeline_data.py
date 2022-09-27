@@ -1,7 +1,7 @@
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 
-query="wannacryattack until:2022-01-01 since:2010-01-01"
+query="(cyberthreat OR cyberthreat warning OR wannacry OR alert) until:2022-09-26 since:2021-01-01"
 tweets = []
 limit=5000
 
@@ -14,6 +14,6 @@ for tweet in sntwitter.TwitterSearchScraper(query).get_items():
 
 df = pd.DataFrame(tweets, columns=['Datetime', 'Username', 'Tweet'])
 
-to_csv = df.to_csv (r'wannacry_timeline_3.csv', index = False, header=True)
+to_csv = df.to_csv (r'wannacry_timeline_6.csv', index = False, header=True)
 
 print(df.head())
